@@ -9,6 +9,9 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :email, presence: true
 
-
+  has_many :discussions , dependent: :destroy
+  has_many :channels, through: :discussions
+  #from user can see channel as written in channel model and thru
+  #channel can see discussions.
 
 end
